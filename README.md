@@ -41,12 +41,12 @@ The `Load_forecasting.py` file contains the implementation of the various Multip
 
 From the two figures below, one can see that there is high correlation between the peaks and valleys of the temperature and the electric load. This  aligns  well  with  intuition  and  corroborates  the  causal relationship  between  temperature  and  load  that  is,  high  and low  temperature  are  the  main  drivers  behind  the electric load  peaks. The  load can thus be forecasted through  its  relationship  with temperature. 
 
-![Load](load_four_years.png)    ![Temperature](temperature_four_years.png)
+![Load](load_four_years.png)    ![Temperature](Figures/temperature_four_years.png)
 
 
 Using  the  data,  we  plot  the  load  versus  temperature  characteristic to get a sense of its overall shape. 
 
-  ![caption='Load-temperature characteristic'](load_temp.png#center)
+  ![caption='Load-temperature characteristic'](Figures/load_temp.png#center)
 
 We  see  that,  this  characteristic  has a  predominantly  quadratic/cubic  U-shape.  We  note  that,  this curve  is  not symmetric  as  its right  part  exhibits  steeper  slope  than  the  left  part.  The minimum  of  this curve  appears to be around 62  F.  Given  the  shape of this curve one can easily conclude that piecewise linear, piecewise quadratic, continuous quadratic or cubic functions seem to be the most appropriate functions for capturing the basic relationship between the load and temperature. In this project, we explore both a continuous  **quadratic  function** and a **cubic function** to  model  the  load-temperature  relationship. 
 
@@ -75,7 +75,7 @@ Variables such as month of the year (1-12), day of the month (1-28 to 31), hour 
 
 Example below shows the cyclical variable encoding of the hour of the day. Using this encoding 23:00 is just as close to 1:00, as 15:00 is to 17:00, which is exactly the information we wanted preserved.
 
-![caption='Cyclical feature encoding - hour of the day'](Figure_sincos.png#center)
+![caption='Cyclical feature encoding - hour of the day'](Figures/Figure_sincos.png#center)
 
 ## Results
 
@@ -120,5 +120,5 @@ The performance of these different models is assessed using **standard goodness-
 ### Discussion on the results
 A couple of things are important to notice here. First, Model 2 performs better than Model 1, which means that a cubic function explains the data better than a quadratic one. Better performance here means larger Adjusted R-squared and smaller MSE and MAE. Model 3 and Model 4 which include the month and the hour as features lead to better performance than Model 2. This verifies our earlier argument that the month and hour are important variables that affect the electric load. Lastly, Model 5, 6 and the full model take into account the interaction effects and lead to further improvements in performance. Lastly, we see that the full model that includes all interaction effects leads to the best overall performance compared with the remaining six models i.e., largest Adjusted R-squared and smallest MSE and MAE. 
 
-![Actual vs predicted load](actual_predicted_load_temp.png) ![Actual vs predicted load](actual_predicted.png)
+![Actual vs predicted load](Figures/actual_predicted_load_temp.png) ![Actual vs predicted load](Figures/actual_predicted.png)
 
